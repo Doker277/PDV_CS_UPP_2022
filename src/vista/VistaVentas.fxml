@@ -57,7 +57,7 @@
          </image>
       </ImageView>
       <Button fx:id="btnAceptar" layoutX="961.0" layoutY="87.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="97.0" styleClass="Btn2" stylesheets="@../css/Estilo.css" text="Aceptar" />
-      <Button fx:id="txtCobrar" layoutX="1145.0" layoutY="87.0" mnemonicParsing="false" onAction="#Cobrar" prefHeight="32.0" prefWidth="97.0" styleClass="Btn1" text="Cobrar" />
+      <Button fx:id="btnCobrar" layoutX="1145.0" layoutY="87.0" mnemonicParsing="false" onAction="#Cobrar" prefHeight="32.0" prefWidth="97.0" styleClass="Btn1" text="Cobrar" />
       <TableView fx:id="tbProductos" layoutX="53.0" layoutY="143.0" prefHeight="530.0" prefWidth="870.0" styleClass="txt1" stylesheets="@../css/Estilo.css">
          <columns>
             <TableColumn fx:id="colCodigoB" prefWidth="177.0" text="Codigo Producto" />

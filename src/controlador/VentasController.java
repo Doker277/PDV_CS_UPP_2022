@@ -20,6 +20,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -29,6 +30,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import modelo.ConexionBD;
 import modelo.Producto;
+import modelo.Usuario;
+import modelo.Venta;
 
 /**
  * FXML Controller class
@@ -76,7 +79,7 @@ public class VentasController implements Initializable {
     @FXML
     private Button btnDuplicar;
     @FXML
-    private Button txtCobrar;
+    private Button btnCobrar;
   
 
     /**
@@ -194,6 +197,20 @@ public class VentasController implements Initializable {
 
     @FXML
     private void Cobrar(ActionEvent event) {
-        
+        Usuario u = null;
+        Producto p = null;
+        Venta v = new Venta(Float.valueOf(txtTotal.getText()));
+         conexion.establecerConexion();
+        int resultado = v.guardarVenta(conexion.getConnection());
+        conexion.cerrarConexion();
+        if(resultado == 1){
+            listaProducto.add(p);
+            Alert mensaje = new Alert(Alert.AlertType.INFORMATION);
+            mensaje.setTitle("Registro agregado");
+            mensaje.setContentText("El registro ha sido agregado correctamente");
+            mensaje.setHeaderText("Resultado:");
+            mensaje.show();
+      
+        }
     }
 }

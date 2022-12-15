@@ -163,3 +163,7 @@ public class Producto {
         }  
     }
 }
+
+/*INSERT INTO ventas(codigoProducto, nombre, marca, precio, cantidad, vendedor)
+SELECT productos.codigoProducto, productos.nombre, productos.marca, productos.precio, productos.stock, usuarios.nombre
+FROM productos INNER JOIN usuarios*/
