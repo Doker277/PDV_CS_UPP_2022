@@ -116,7 +116,7 @@ public class Usuario {
             ResultSet resultado = instruction.executeQuery("select * from usuarios");
             while(resultado.next()){
                 lista.add(new Usuario(
-                            resultado.getInt("idUser"),
+                        resultado.getInt("idUser"),
                         resultado.getString("nombre"),
                         resultado.getString("apellido"),
                         resultado.getString("rol"),
@@ -156,7 +156,7 @@ public class Usuario {
                     + "nombre =?, "
                     + "apellido =?, "
                     + "rol =?, "
-                    + "contrasena =?) "
+                    + "contrasena =? "
                     + "WHERE idUser = ?");
                     
             instruction.setInt(1, idUsuario);

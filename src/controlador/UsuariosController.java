@@ -60,8 +60,6 @@ public class UsuariosController implements Initializable {
     @FXML
     private TableColumn<Usuario, String> colContrasena;
     @FXML
-    private TextField txtidUsuario;
-    @FXML
     private Button btnActualizar;
     @FXML
     private Button btnEliminar;
@@ -170,7 +168,7 @@ public class UsuariosController implements Initializable {
     
     @FXML
     public void guardarUsuarios(){
-        Usuario u = new Usuario(Integer.valueOf(txtidUsuario.getText()),
+        Usuario u = new Usuario(Integer.valueOf(txtIdUsuario.getText()),
                 txtNombre.getText(),
                 txtApellido.getText(),
                 txtRol.getText(),
@@ -191,7 +189,7 @@ public class UsuariosController implements Initializable {
     }   
     @FXML
     public void actualizarUsuarios(){
-        Usuario u = new Usuario(Integer.valueOf(txtidUsuario.getText()),
+        Usuario u = new Usuario(Integer.valueOf(txtIdUsuario.getText()),
                 txtNombre.getText(),
                 txtApellido.getText(),
                 txtRol.getText(),
