@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #212230;" stylesheets="@../css/Estilo.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.VentasController">
+   <children>
+      <AnchorPane prefHeight="65.0" prefWidth="1285.0" style="-fx-background-color: #191A24;" styleClass="pane" stylesheets="@../css/Estilo.css">
+         <children>
+            <Button fx:id="btnInv" layoutX="56.0" layoutY="17.0" mnemonicParsing="false" onAction="#Inventario" style="-fx-background-color: #191A24;" text="Inventario" textFill="WHITE">
+               <font>
+                  <Font name="Bookman Old Style" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnProd" layoutX="160.0" layoutY="16.0" mnemonicParsing="false" onAction="#Producto" style="-fx-background-color: #191A24;" text="Productos" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="240.0" layoutY="17.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="95.0" style="-fx-background-color: #191A24;" text="Ventas" textFill="WHITE">
+               <font>
+                  <Font name="Bookman Old Style" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnUsu" layoutX="1143.0" layoutY="20.0" mnemonicParsing="false" onAction="#Usuario" prefHeight="28.0" prefWidth="95.0" style="-fx-background-color: #191A24;" text="Usuarios" textFill="WHITE">
+               <font>
+                  <Font name="Bookman Old Style" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Button fx:id="btnVent" layoutX="245.0" layoutY="17.0" mnemonicParsing="false" onAction="#Venta" prefHeight="28.0" prefWidth="95.0" style="-fx-background-color: #191A24;" text="Ventas" textFill="WHITE">
+         <font>
+            <Font name="Bookman Old Style" size="15.0" />
+         </font>
+      </Button>
+      <Label layoutX="53.0" layoutY="88.0" text="Codigo del producto" textFill="WHITE">
+         <font>
+            <Font name="Book Antiqua" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtNombrefiltro" layoutX="340.0" layoutY="84.0" onKeyReleased="#BuscarP" prefHeight="38.0" prefWidth="585.0" promptText="Buscar" styleClass="txt1" stylesheets="@../css/Estilo.css">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextField>
+      <ImageView fitHeight="26.0" fitWidth="25.0" layoutX="886.0" layoutY="92.0" opacity="0.67" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/690150.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnAceptar" layoutX="961.0" layoutY="87.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="97.0" styleClass="Btn2" stylesheets="@../css/Estilo.css" text="Aceptar" />
+      <Button fx:id="txtCobrar" layoutX="1145.0" layoutY="87.0" mnemonicParsing="false" onAction="#Cobrar" prefHeight="32.0" prefWidth="97.0" styleClass="Btn1" text="Cobrar" />
+      <TableView fx:id="tbProductos" layoutX="53.0" layoutY="143.0" prefHeight="530.0" prefWidth="870.0" styleClass="txt1" stylesheets="@../css/Estilo.css">
+         <columns>
+            <TableColumn fx:id="colCodigoB" prefWidth="177.0" text="Codigo Producto" />
+            <TableColumn fx:id="colNombre" prefWidth="177.0" text="Nombre" />
+            <TableColumn fx:id="colMarca" prefWidth="179.0" text="Marca" />
+            <TableColumn fx:id="colPrecio" prefWidth="179.0" text="Precio" />
+            <TableColumn fx:id="colCantidad" prefWidth="157.0" text="Cantidad" />
+         </columns>
+      </TableView>
+      <Label layoutX="1010.0" layoutY="143.0" text="Total de la venta" textFill="WHITE">
+         <font>
+            <Font name="Book Antiqua" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtTotal" alignment="CENTER_RIGHT" layoutX="955.0" layoutY="191.0" prefHeight="45.0" prefWidth="286.0" promptText="0.0" styleClass="txt1">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </TextField>
+      <Button fx:id="btnDuplicar" disable="true" layoutX="1013.0" layoutY="389.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="172.0" styleClass="act" stylesheets="@../css/Estilo.css" text="Duplicar" />
+      <Button fx:id="btnEliminar" disable="true" layoutX="1013.0" layoutY="288.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="172.0" styleClass="eli" stylesheets="@../css/Estilo.css" text="Eliminar" />
+      <Button fx:id="btnCancelar" layoutX="1013.0" layoutY="487.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="172.0" styleClass="salir" stylesheets="@../css/Estilo.css" text="Cancelar" />
+   </children>
+</AnchorPane>
