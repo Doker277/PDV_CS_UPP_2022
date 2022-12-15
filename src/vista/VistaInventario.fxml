@@ -41,7 +41,7 @@
             <Font name="Book Antiqua" size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="txtCodigo" layoutX="427.0" layoutY="84.0" prefHeight="38.0" prefWidth="426.0" promptText="Buscar" styleClass="txt1" stylesheets="@../css/Estilo.css">
+      <TextField fx:id="txtMarcaFiltro" layoutX="427.0" layoutY="84.0" onKeyReleased="#Buscar" prefHeight="38.0" prefWidth="426.0" promptText="Buscar" styleClass="txt1" stylesheets="@../css/Estilo.css">
          <font>
             <Font size="16.0" />
          </font>

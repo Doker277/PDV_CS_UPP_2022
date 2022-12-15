@@ -23,6 +23,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import modelo.ConexionBD;
 import modelo.Inventario;
@@ -43,8 +44,6 @@ public class InventarioController implements Initializable {
     private Button btnUsu;
     @FXML
     private Button btnVent;
-    @FXML
-    private TextField txtCodigo;
     @FXML
     private Button btnAceptar;
     @FXML
@@ -73,7 +72,11 @@ public class InventarioController implements Initializable {
     private TextField txtPrecioC;
     
     private ObservableList<Inventario> listaInventario;
+    private ObservableList<Inventario> Inventariofiltro;
     private ConexionBD conexion;
+    private TextField txtMarca;
+    @FXML
+    private TextField txtMarcaFiltro;
 
     /**
      * Initializes the controller class.
@@ -84,6 +87,7 @@ public class InventarioController implements Initializable {
         conexion.establecerConexion();
         
         listaInventario = FXCollections.observableArrayList();
+        Inventariofiltro = FXCollections.observableArrayList();
         Inventario.llenarTablaInventario(conexion.getConnection(), listaInventario);
         tbInventario.setItems(listaInventario);
         
@@ -158,5 +162,23 @@ public class InventarioController implements Initializable {
 
     @FXML
     private void Salir(ActionEvent event) {
+    }
+
+    @FXML
+    private void Buscar(KeyEvent event) {
+        String filtroMarca= this.txtMarcaFiltro.getText();
+        
+        if(filtroMarca.isEmpty()){
+            this.tbInventario.setItems(listaInventario);
+        }else{
+            this.Inventariofiltro.clear();
+            
+            for (Inventario p:this.listaInventario) {
+                if(p.getMarca().toLowerCase().contains(filtroMarca)){
+                    this.Inventariofiltro.add(p);
+                }
+            }
+            this.tbInventario.setItems(Inventariofiltro);
+        }
     }
 }
