@@ -9,6 +9,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,7 +22,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import modelo.ConexionBD;
+import modelo.Inventario;
+import modelo.Producto;
 
 /**
  * FXML Controller class
@@ -42,19 +48,17 @@ public class InventarioController implements Initializable {
     @FXML
     private Button btnAceptar;
     @FXML
-    private TableView<?> tbInventario;
+    private TableView<Inventario> tbInventario;
     @FXML
-    private TableColumn<?, ?> colCodigo;
+    private TableColumn<Inventario, Number> colCodigo;
     @FXML
-    private TableColumn<?, ?> colNombre;
+    private TableColumn<Inventario, String> colMarca;
     @FXML
-    private TableColumn<?, ?> colMarca;
+    private TableColumn<Inventario, Float> colPrecioC;
     @FXML
-    private TableColumn<?, ?> colPrecioC;
+    private TableColumn<Inventario, String> colPrecioV;
     @FXML
-    private TableColumn<?, ?> colPrecioV;
-    @FXML
-    private TableColumn<?, ?> colStock;
+    private TableColumn<Inventario, String> colStock;
     @FXML
     private Button btnEliminar;
     @FXML
@@ -63,13 +67,31 @@ public class InventarioController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
+    @FXML
+    private Button btnActualizar;
+    @FXML
+    private TextField txtPrecioC;
+    
+    private ObservableList<Inventario> listaInventario;
+    private ConexionBD conexion;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        conexion = new ConexionBD();
+        conexion.establecerConexion();
+        
+        listaInventario = FXCollections.observableArrayList();
+        Inventario.llenarTablaInventario(conexion.getConnection(), listaInventario);
+        tbInventario.setItems(listaInventario);
+        
+        colCodigo.setCellValueFactory(new PropertyValueFactory<Inventario,Number>("codigoProducto"));
+        colMarca.setCellValueFactory(new PropertyValueFactory<Inventario,String>("Marca"));
+        colPrecioV.setCellValueFactory(new PropertyValueFactory<Inventario,String>("PrecioVenta"));
+        colPrecioC.setCellValueFactory(new PropertyValueFactory<Inventario,Float>("precioCompra"));
+        colStock.setCellValueFactory(new PropertyValueFactory<Inventario,String>("stock"));
     }    
     
     @FXML
@@ -124,5 +146,17 @@ public class InventarioController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(ProductoController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void ActualizarInventario(ActionEvent event) {
+    }
+
+    @FXML
+    private void EliminarInventario(ActionEvent event) {
+    }
+
+    @FXML
+    private void Salir(ActionEvent event) {
     }
 }

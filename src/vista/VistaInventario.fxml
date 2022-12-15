@@ -52,18 +52,18 @@
          </image>
       </ImageView>
       <Button fx:id="btnAceptar" layoutX="888.0" layoutY="87.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="97.0" styleClass="Btn2" stylesheets="@../css/Estilo.css" text="Aceptar" />
-      <Button layoutX="1013.0" layoutY="155.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="172.0" styleClass="act" stylesheets="@../css/Estilo.css" text="Actualizar" />
+      <Button fx:id="btnActualizar" layoutX="1013.0" layoutY="232.0" mnemonicParsing="false" onAction="#ActualizarInventario" prefHeight="54.0" prefWidth="172.0" styleClass="act" stylesheets="@../css/Estilo.css" text="Actualizar" />
       <TableView fx:id="tbInventario" layoutX="51.0" layoutY="143.0" prefHeight="563.0" prefWidth="870.0" styleClass="txt1" stylesheets="@../css/Estilo.css">
         <columns>
           <TableColumn fx:id="colCodigo" prefWidth="127.0" text="Codigo" />
-          <TableColumn fx:id="colNombre" prefWidth="141.0" text="Nombre" />
             <TableColumn fx:id="colMarca" prefWidth="155.0" text="Marca" />
-            <TableColumn fx:id="colPrecioC" prefWidth="145.0" text="Precio Compra" />
-            <TableColumn fx:id="colPrecioV" prefWidth="166.0" text="Precio Venta" />
-            <TableColumn fx:id="colStock" prefWidth="131.0" text="Stock" />
+            <TableColumn fx:id="colPrecioC" prefWidth="135.0" text="Precio Compra" />
+            <TableColumn fx:id="colPrecioV" prefWidth="247.0" text="Precio Venta" />
+            <TableColumn fx:id="colStock" prefWidth="205.0" text="Stock" />
         </columns>
       </TableView>
-      <Button fx:id="btnEliminar" layoutX="1013.0" layoutY="244.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="172.0" styleClass="eli" stylesheets="@../css/Estilo.css" text="Eliminar" />
-      <Button fx:id="btnSalir" layoutX="1013.0" layoutY="333.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="172.0" styleClass="salir" stylesheets="@../css/Estilo.css" text="Salir" />
+      <Button fx:id="btnEliminar" layoutX="1013.0" layoutY="322.0" mnemonicParsing="false" onAction="#EliminarInventario" prefHeight="54.0" prefWidth="172.0" styleClass="eli" stylesheets="@../css/Estilo.css" text="Eliminar" />
+      <Button fx:id="btnSalir" layoutX="1014.0" layoutY="413.0" mnemonicParsing="false" onAction="#Salir" prefHeight="54.0" prefWidth="172.0" styleClass="salir" stylesheets="@../css/Estilo.css" text="Salir" />
+      <TextField fx:id="txtPrecioC" layoutX="956.0" layoutY="143.0" prefHeight="38.0" prefWidth="287.0" promptText="PrecioC" styleClass="txt1" stylesheets="@../css/Estilo.css" />
    </children>
 </AnchorPane>

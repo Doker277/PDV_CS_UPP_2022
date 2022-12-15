@@ -22,7 +22,7 @@ public class main extends Application {
     public void start(Stage primaryStage) {
            try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(main.class.getResource("/vista/VistaLogin.fxml"));
+            loader.setLocation(main.class.getResource("/vista/Vistalogin.fxml"));
             Pane ventana = (Pane) loader.load();
 
             // Show the scene containing the root layout.
